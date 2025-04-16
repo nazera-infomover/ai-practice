@@ -7,7 +7,8 @@ def get_model_response(prompt, model_name):
     result = subprocess.run(
         ["ollama", "run", model_name, prompt],  # Command to call Ollama
         capture_output=True,                    # Capture the output
-        text=True                               # Treat output as text
+        text=True,                            # Treat output as text
+        encoding='utf-8'  
     )
     return result.stdout.strip()  # Clean and return response
 
